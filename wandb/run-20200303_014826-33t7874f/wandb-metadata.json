@@ -1,0 +1,28 @@
+{
+    "root": "c:/Users/DS/Desktop/zhan8425_project",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "ssh://gitolite/zhan8425_project",
+        "commit": "bf51075ca52b33407f937617ef23947338c8e280"
+    },
+    "email": "runze.zhang2001@gmail.com",
+    "startedAt": "2020-03-03T01:48:40.195223",
+    "host": "Ryan-PC",
+    "username": "DS",
+    "executable": "c:\\Users\\DS\\Desktop\\zhan8425_project\\projenv\\Scripts\\python.exe",
+    "os": "Windows-10-10.0.18362-SP0",
+    "python": "3.7.4",
+    "gpu": "GeForce GTX 1050 Ti",
+    "gpu_count": 1,
+    "cpu_count": 4,
+    "args": [
+        "-f",
+        "C:\\Users\\DS\\AppData\\Roaming\\jupyter\\runtime\\kernel-628efb26-f595-41fb-8536-4e72c564a87c.json"
+    ],
+    "state": "running",
+    "jobType": null,
+    "mode": "run",
+    "name": "valiant-bird-19",
+    "project": "lstm-autoencoder-esc190",
+    "heartbeatAt": "2020-03-03T01:48:41.335540"
+}

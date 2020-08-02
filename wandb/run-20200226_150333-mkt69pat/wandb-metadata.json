@@ -1,0 +1,28 @@
+{
+    "root": "c:/Users/DS/Desktop/zhan8425_project",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "ssh://gitolite/zhan8425_project",
+        "commit": "af1f13682fd1a385c80c77bff7670f873cbf3029"
+    },
+    "email": "runze.zhang2001@gmail.com",
+    "startedAt": "2020-02-26T15:05:31.623171",
+    "host": "Ryan-PC",
+    "username": "DS",
+    "executable": "c:\\Users\\DS\\Desktop\\zhan8425_project\\projenv\\Scripts\\python.exe",
+    "os": "Windows-10-10.0.18362-SP0",
+    "python": "3.7.4",
+    "gpu": "GeForce GTX 1050 Ti",
+    "gpu_count": 1,
+    "cpu_count": 4,
+    "args": [
+        "-f",
+        "C:\\Users\\DS\\AppData\\Roaming\\jupyter\\runtime\\kernel-3c42f171-d91a-4cac-b9a8-bccfe0602910.json"
+    ],
+    "state": "running",
+    "jobType": null,
+    "mode": "run",
+    "name": "helpful-silence-1",
+    "project": "lstm-autoencoder-esc190",
+    "heartbeatAt": "2020-02-26T16:31:44.230873"
+}

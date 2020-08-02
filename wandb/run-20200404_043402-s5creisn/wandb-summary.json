@@ -1,0 +1,1 @@
+{"graph": {"_type": "graph-file", "path": "media/graph/graph_summary_629f1d65.graph.json", "sha256": "629f1d65306de66ef8523e1ca967ad439047aa7b351aa3102128743896ac80b5", "size": 948}, "_step": 7, "epoch": 7, "accuracy": 0.07466918975114822, "_runtime": 42552.18787765503, "loss": 0.7795370985559151, "_timestamp": 1586017394.523724}

@@ -1,0 +1,134 @@
+diff --git a/__pycache__/utils.cpython-37.pyc b/__pycache__/utils.cpython-37.pyc
+index dfd0f87..e78db15 100644
+Binary files a/__pycache__/utils.cpython-37.pyc and b/__pycache__/utils.cpython-37.pyc differ
+diff --git a/dataProcessing.ipynb b/dataProcessing.ipynb
+index 36fa789..0571bb9 100644
+--- a/dataProcessing.ipynb
++++ b/dataProcessing.ipynb
+@@ -25,7 +25,7 @@
+  "cells": [
+   {
+    "cell_type": "code",
+-   "execution_count": 3,
++   "execution_count": 10,
+    "metadata": {},
+    "outputs": [
+     {
+@@ -35,19 +35,11 @@
+     },
+     {
+      "data": {
+-      "text/html": "\n                Logging results to <a href=\"https://wandb.com\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n                Project page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190</a><br/>\n                Run page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/mkt69pat\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/mkt69pat</a><br/>\n            ",
++      "text/html": "\n                Logging results to <a href=\"https://wandb.com\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n                Project page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190</a><br/>\n                Run page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/68a7k1xr\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/68a7k1xr</a><br/>\n            ",
+       "text/plain": "<IPython.core.display.HTML object>"
+      },
+      "metadata": {},
+      "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/plain": "W&B Run: https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/mkt69pat"
+-     },
+-     "execution_count": 3,
+-     "metadata": {},
+-     "output_type": "execute_result"
+     }
+    ],
+    "source": [
+@@ -68,7 +60,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 4,
++   "execution_count": 11,
+    "metadata": {},
+    "outputs": [
+     {
+@@ -100,7 +92,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 5,
++   "execution_count": 12,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -164,13 +156,13 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 6,
++   "execution_count": 13,
+    "metadata": {},
+    "outputs": [
+     {
+      "name": "stdout",
+      "output_type": "stream",
+-     "text": "Model: \"model\"\n_________________________________________________________________\nLayer (type)                 Output Shape              Param #   \n=================================================================\ninput_1 (InputLayer)         [(None, None)]            0         \n_________________________________________________________________\nembedding_1 (Embedding)      (None, None, 64)          3004736   \n_________________________________________________________________\nlstm (LSTM)                  (None, None, 32)          12416     \n_________________________________________________________________\nlstm_1 (LSTM)                (None, 16)                3136      \n_________________________________________________________________\nrepeat_vector (RepeatVector) (None, 54, 16)            0         \n_________________________________________________________________\nlstm_2 (LSTM)                (None, 54, 16)            2112      \n_________________________________________________________________\nlstm_3 (LSTM)                (None, 54, 32)            6272      \n_________________________________________________________________\ntime_distributed (TimeDistri (None, 54, 100)           3300      \n_________________________________________________________________\ntime_distributed_1 (TimeDist (None, 54, 46948)         4741748   \n=================================================================\nTotal params: 7,773,720\nTrainable params: 7,773,720\nNon-trainable params: 0\n_________________________________________________________________\n"
++     "text": "Model: \"model_1\"\n__________________________________________________________________________________________________\nLayer (type)                    Output Shape         Param #     Connected to                     \n==================================================================================================\ninput_2 (InputLayer)            [(None, None)]       0                                            \n__________________________________________________________________________________________________\nembedding_2 (Embedding)         (None, None, 64)     3004736     input_2[0][0]                    \n__________________________________________________________________________________________________\ntf_op_layer_NotEqual_1 (TensorF [(None, None)]       0           input_2[0][0]                    \n__________________________________________________________________________________________________\nlstm_4 (LSTM)                   (None, None, 32)     12416       embedding_2[0][0]                \n__________________________________________________________________________________________________\nlstm_5 (LSTM)                   (None, 16)           3136        lstm_4[0][0]                     \n__________________________________________________________________________________________________\nrepeat_vector_1 (RepeatVector)  (None, 54, 16)       0           lstm_5[0][0]                     \n__________________________________________________________________________________________________\nlstm_6 (LSTM)                   (None, 54, 16)       2112        repeat_vector_1[0][0]            \n__________________________________________________________________________________________________\nlstm_7 (LSTM)                   (None, 54, 32)       6272        lstm_6[0][0]                     \n__________________________________________________________________________________________________\ntime_distributed_2 (TimeDistrib (None, 54, 100)      3300        lstm_7[0][0]                     \n__________________________________________________________________________________________________\ntime_distributed_3 (TimeDistrib (None, 54, 46948)    4741748     time_distributed_2[0][0]         \n==================================================================================================\nTotal params: 7,773,720\nTrainable params: 7,773,720\nNon-trainable params: 0\n__________________________________________________________________________________________________\n"
+     }
+    ],
+    "source": [
+@@ -185,7 +177,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 9,
++   "execution_count": 14,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -199,21 +191,23 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": null,
++   "execution_count": 15,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+     "config.batch_size = 8\n",
+-    "config.steps_per_epoch = 1000"
++    "config.steps_per_epoch = 100\n",
++    "config.epochs = 700"
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 10,
++   "execution_count": 16,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+     "x_train = x_train.astype(\"int32\")\n",
++    "np.random.shuffle(x_train)\n",
+     "dataset = tf.data.Dataset.from_tensor_slices(x_train)\n",
+     "dataset = dataset.map(to_one_hot)\n",
+     "dataset = dataset.shuffle(1000).batch(config.batch_size)"
+@@ -221,7 +215,16 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 11,
++   "execution_count": 9,
++   "metadata": {},
++   "outputs": [],
++   "source": [
++    "model.load_weights(\"weights.h5\")"
++   ]
++  },
++  {
++   "cell_type": "code",
++   "execution_count": 8,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -249,7 +252,7 @@
+    ],
+    "source": [
+     "wandb.init()\n",
+-    "model.fit(dataset, epochs=1, callbacks=[WandbCallback()], steps_per_epoch=config.steps_per_epoch)"
++    "model.fit(dataset, epochs=config.epochs, callbacks=[WandbCallback()], steps_per_epoch=config.steps_per_epoch)"
+    ]
+   },
+   {

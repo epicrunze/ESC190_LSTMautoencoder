@@ -1,0 +1,28 @@
+{
+    "root": "c:/Users/DS/Desktop/zhan8425_project",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "ssh://gitolite/zhan8425_project",
+        "commit": "ab6f5c6a4f80a36fa08f77c29cad080d1f60dcb2"
+    },
+    "email": "runze.zhang2001@gmail.com",
+    "startedAt": "2020-02-27T05:07:51.469698",
+    "host": "Ryan-PC",
+    "username": "DS",
+    "executable": "c:\\Users\\DS\\Desktop\\zhan8425_project\\projenv\\Scripts\\python.exe",
+    "os": "Windows-10-10.0.18362-SP0",
+    "python": "3.7.4",
+    "gpu": "GeForce GTX 1050 Ti",
+    "gpu_count": 1,
+    "cpu_count": 4,
+    "args": [
+        "-f",
+        "C:\\Users\\DS\\AppData\\Roaming\\jupyter\\runtime\\kernel-ffbd5a45-f08c-4b0c-880d-053862140b12.json"
+    ],
+    "state": "running",
+    "jobType": null,
+    "mode": "run",
+    "name": "olive-vortex-4",
+    "project": "lstm-autoencoder-esc190",
+    "heartbeatAt": "2020-02-27T05:13:14.572465"
+}

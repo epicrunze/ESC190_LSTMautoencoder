@@ -1,0 +1,28 @@
+{
+    "root": "c:/Users/DS/Desktop/zhan8425_project",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "ssh://gitolite/zhan8425_project",
+        "commit": "8d6085f393d5c8434180518d69d82b2bd6cc16b3"
+    },
+    "email": "runze.zhang2001@gmail.com",
+    "startedAt": "2020-04-09T20:42:50.154405",
+    "host": "Ryan-PC",
+    "username": "DS",
+    "executable": "c:\\Users\\DS\\Desktop\\zhan8425_project\\projenv\\Scripts\\python.exe",
+    "os": "Windows-10-10.0.18362-SP0",
+    "python": "3.7.4",
+    "gpu": "GeForce GTX 1050 Ti",
+    "gpu_count": 1,
+    "cpu_count": 4,
+    "args": [
+        "-f",
+        "C:\\Users\\DS\\AppData\\Roaming\\jupyter\\runtime\\kernel-e3e6fe25-c463-45b4-8ba4-d46bf1104943.json"
+    ],
+    "state": "running",
+    "jobType": null,
+    "mode": "run",
+    "name": "snowy-cloud-39",
+    "project": "lstm-autoencoder-esc190",
+    "heartbeatAt": "2020-04-09T20:42:52.967882"
+}

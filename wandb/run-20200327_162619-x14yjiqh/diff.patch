@@ -1,0 +1,278 @@
+diff --git a/__pycache__/utils.cpython-37.pyc b/__pycache__/utils.cpython-37.pyc
+index e78db15..bd8a7d1 100644
+Binary files a/__pycache__/utils.cpython-37.pyc and b/__pycache__/utils.cpython-37.pyc differ
+diff --git a/bin, but it's python/__pycache__/structs.cpython-37.pyc b/bin, but it's python/__pycache__/structs.cpython-37.pyc
+index cc4806e..852d7fe 100644
+Binary files a/bin, but it's python/__pycache__/structs.cpython-37.pyc and b/bin, but it's python/__pycache__/structs.cpython-37.pyc differ
+diff --git a/bin, but it's python/__pycache__/utils.cpython-37.pyc b/bin, but it's python/__pycache__/utils.cpython-37.pyc
+index ec32701..1d7180a 100644
+Binary files a/bin, but it's python/__pycache__/utils.cpython-37.pyc and b/bin, but it's python/__pycache__/utils.cpython-37.pyc differ
+diff --git a/dataProcessing.ipynb b/dataProcessing.ipynb
+index d9e550f..28be84f 100644
+--- a/dataProcessing.ipynb
++++ b/dataProcessing.ipynb
+@@ -1,27 +1,4 @@
+ {
+- "nbformat": 4,
+- "nbformat_minor": 2,
+- "metadata": {
+-  "language_info": {
+-   "name": "python",
+-   "codemirror_mode": {
+-    "name": "ipython",
+-    "version": 3
+-   },
+-   "version": "3.7.4-final"
+-  },
+-  "orig_nbformat": 2,
+-  "file_extension": ".py",
+-  "mimetype": "text/x-python",
+-  "name": "python",
+-  "npconvert_exporter": "python",
+-  "pygments_lexer": "ipython3",
+-  "version": 3,
+-  "kernelspec": {
+-   "name": "python37464bitprojenvvenv5183e90ff64f49ee83b8a29c549cc789",
+-   "display_name": "Python 3.7.4 64-bit ('projenv': venv)"
+-  }
+- },
+  "cells": [
+   {
+    "cell_type": "code",
+@@ -31,15 +8,21 @@
+     {
+      "name": "stdout",
+      "output_type": "stream",
+-     "text": "Successfully logged in to Weights & Biases!\nwandb: Appending key for api.wandb.ai to your netrc file: C:\\Users\\DS/.netrc\n"
++     "text": [
++      "Successfully logged in to Weights & Biases!\nwandb: Appending key for api.wandb.ai to your netrc file: C:\\Users\\DS/.netrc\n"
++     ]
+     },
+     {
+      "data": {
+-      "text/html": "\n                Logging results to <a href=\"https://wandb.com\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n                Project page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190</a><br/>\n                Run page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/f2utsmym\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/f2utsmym</a><br/>\n            ",
+-      "text/plain": "<IPython.core.display.HTML object>"
++      "text/html": [
++       "\n                Logging results to <a href=\"https://wandb.com\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n                Project page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190</a><br/>\n                Run page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/f2utsmym\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/f2utsmym</a><br/>\n            "
++      ],
++      "text/plain": [
++       "<IPython.core.display.HTML object>"
++      ]
+      },
+      "metadata": {},
+-     "output_type": "display_data"
++     "output_type": "execute_result"
+     }
+    ],
+    "source": [
+@@ -66,7 +49,9 @@
+     {
+      "name": "stdout",
+      "output_type": "stream",
+-     "text": "Size of vocabulary: 117659\nLongest definition (words): 54\nNumber of definitions: 135959\nSize of definition vocabulary: 46948\n(135959, 54)\n"
++     "text": [
++      "Size of vocabulary: 117659\nLongest definition (words): 54\nNumber of definitions: 135959\nSize of definition vocabulary: 46948\n(135959, 54)\n"
++     ]
+     }
+    ],
+    "source": [
+@@ -98,13 +83,13 @@
+     {
+      "ename": "NameError",
+      "evalue": "name 'vocab_size' is not defined",
+-     "output_type": "error",
+      "traceback": [
+       "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+       "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+       "\u001b[1;32m<ipython-input-1-2ddc14c4efd0>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[0;32m     41\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m     42\u001b[0m \u001b[0minputs\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mInput\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mshape\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;32mNone\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m---> 43\u001b[1;33m \u001b[0membedding\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mEmbedding\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0minput_dim\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0mvocab_size\u001b[0m\u001b[1;33m+\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0moutput_dim\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;36m64\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0minput_length\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0mmax_length\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mmask_zero\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;32mTrue\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0minputs\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m     44\u001b[0m \u001b[0mmask\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mEmbedding\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0minput_dim\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;36m50000\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0moutput_dim\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;36m64\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0minput_length\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0mmax_length\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mmask_zero\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;32mTrue\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mcompute_mask\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0minputs\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m     45\u001b[0m \u001b[0mencodingLSTM1\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mLSTM\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m32\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mreturn_sequences\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;32mTrue\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0membedding\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mmask\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0mmask\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+       "\u001b[1;31mNameError\u001b[0m: name 'vocab_size' is not defined"
+-     ]
++     ],
++     "output_type": "error"
+     }
+    ],
+    "source": [
+@@ -173,8 +158,7 @@
+     "denseboi = TimeDistributed(Dense(100, activation=\"relu\"))(decodingLSTM2)\n",
+     "finalDense = TimeDistributed(Dense(vocab_size, activation=\"softmax\"))(denseboi)\n",
+     "output = finalDense\n",
+-    "#creating optimizers and loss\n",
+-    "\n"
++    "#creating optimizers and loss"
+    ]
+   },
+   {
+@@ -257,20 +241,28 @@
+    "outputs": [
+     {
+      "data": {
+-      "text/html": "\n                Logging results to <a href=\"https://wandb.com\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n                Project page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190</a><br/>\n                Run page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/l6c7og3x\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/l6c7og3x</a><br/>\n            ",
+-      "text/plain": "<IPython.core.display.HTML object>"
++      "text/html": [
++       "\n                Logging results to <a href=\"https://wandb.com\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n                Project page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190</a><br/>\n                Run page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/l6c7og3x\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/l6c7og3x</a><br/>\n            "
++      ],
++      "text/plain": [
++       "<IPython.core.display.HTML object>"
++      ]
+      },
+      "metadata": {},
+-     "output_type": "display_data"
++     "output_type": "execute_result"
+     },
+     {
+      "name": "stdout",
+      "output_type": "stream",
+-     "text": "Train for 8498 steps\nEpoch 1/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.4075 - accuracy: 0.5190\nEpoch 00001: saving model to 32vec.5.weights.01.h5\n8498/8498 [==============================] - 2478s 292ms/step - loss: 0.4075 - accuracy: 0.5190\nEpoch 2/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3949 - accuracy: 0.5259\nEpoch 00002: saving model to 32vec.5.weights.02.h5\n8498/8498 [==============================] - 2362s 278ms/step - loss: 0.3949 - accuracy: 0.5259\nEpoch 3/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3877 - accuracy: 0.5304\nEpoch 00003: saving model to 32vec.5.weights.03.h5\n8498/8498 [==============================] - 2356s 277ms/step - loss: 0.3877 - accuracy: 0.5304\nEpoch 4/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3809 - accuracy: 0.5357\nEpoch 00004: saving model to 32vec.5.weights.04.h5\n8498/8498 [==============================] - 2365s 278ms/step - loss: 0.3809 - accuracy: 0.5357\nEpoch 5/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3756 - accuracy: 0.5396\nEpoch 00005: saving model to 32vec.5.weights.05.h5\n8498/8498 [==============================] - 2356s 277ms/step - loss: 0.3756 - accuracy: 0.5396\nEpoch 6/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3694 - accuracy: 0.5443\nEpoch 00006: saving model to 32vec.5.weights.06.h5\n8498/8498 [==============================] - 2361s 278ms/step - loss: 0.3694 - accuracy: 0.5443\nEpoch 7/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3644 - accuracy: 0.5485\nEpoch 00007: saving model to 32vec.5.weights.07.h5\n8498/8498 [==============================] - 2362s 278ms/step - loss: 0.3644 - accuracy: 0.5485\nEpoch 8/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3597 - accuracy: 0.5527\nEpoch 00008: saving model to 32vec.5.weights.08.h5\n8498/8498 [==============================] - 2354s 277ms/step - loss: 0.3597 - accuracy: 0.5527\n"
++     "text": [
++      "Train for 8498 steps\nEpoch 1/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.4075 - accuracy: 0.5190\nEpoch 00001: saving model to 32vec.5.weights.01.h5\n8498/8498 [==============================] - 2478s 292ms/step - loss: 0.4075 - accuracy: 0.5190\nEpoch 2/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3949 - accuracy: 0.5259\nEpoch 00002: saving model to 32vec.5.weights.02.h5\n8498/8498 [==============================] - 2362s 278ms/step - loss: 0.3949 - accuracy: 0.5259\nEpoch 3/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3877 - accuracy: 0.5304\nEpoch 00003: saving model to 32vec.5.weights.03.h5\n8498/8498 [==============================] - 2356s 277ms/step - loss: 0.3877 - accuracy: 0.5304\nEpoch 4/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3809 - accuracy: 0.5357\nEpoch 00004: saving model to 32vec.5.weights.04.h5\n8498/8498 [==============================] - 2365s 278ms/step - loss: 0.3809 - accuracy: 0.5357\nEpoch 5/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3756 - accuracy: 0.5396\nEpoch 00005: saving model to 32vec.5.weights.05.h5\n8498/8498 [==============================] - 2356s 277ms/step - loss: 0.3756 - accuracy: 0.5396\nEpoch 6/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3694 - accuracy: 0.5443\nEpoch 00006: saving model to 32vec.5.weights.06.h5\n8498/8498 [==============================] - 2361s 278ms/step - loss: 0.3694 - accuracy: 0.5443\nEpoch 7/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3644 - accuracy: 0.5485\nEpoch 00007: saving model to 32vec.5.weights.07.h5\n8498/8498 [==============================] - 2362s 278ms/step - loss: 0.3644 - accuracy: 0.5485\nEpoch 8/8\n8497/8498 [============================>.] - ETA: 0s - loss: 0.3597 - accuracy: 0.5527\nEpoch 00008: saving model to 32vec.5.weights.08.h5\n8498/8498 [==============================] - 2354s 277ms/step - loss: 0.3597 - accuracy: 0.5527\n"
++     ]
+     },
+     {
+      "data": {
+-      "text/plain": "<tensorflow.python.keras.callbacks.History at 0x24340e51c48>"
++      "text/plain": [
++       "<tensorflow.python.keras.callbacks.History at 0x24340e51c48>"
++      ]
+      },
+      "execution_count": 17,
+      "metadata": {},
+@@ -298,5 +290,28 @@
+    "outputs": [],
+    "source": []
+   }
+- ]
++ ],
++ "metadata": {
++  "language_info": {
++   "name": "python",
++   "codemirror_mode": {
++    "name": "ipython",
++    "version": 3
++   },
++   "version": "3.7.4-final"
++  },
++  "orig_nbformat": 2,
++  "file_extension": ".py",
++  "mimetype": "text/x-python",
++  "name": "python",
++  "npconvert_exporter": "python",
++  "pygments_lexer": "ipython3",
++  "version": 3,
++  "kernelspec": {
++   "name": "python37464bitprojenvvenv5183e90ff64f49ee83b8a29c549cc789",
++   "display_name": "Python 3.7.4 64-bit ('projenv': venv)"
++  }
++ },
++ "nbformat": 4,
++ "nbformat_minor": 2
+ }
+\ No newline at end of file
+diff --git a/universalSentenceEmbedding.ipynb b/universalSentenceEmbedding.ipynb
+index 1a8c1ab..17c27ce 100644
+--- a/universalSentenceEmbedding.ipynb
++++ b/universalSentenceEmbedding.ipynb
+@@ -7,7 +7,8 @@
+    "codemirror_mode": {
+     "name": "ipython",
+     "version": 3
+-   }
++   },
++   "version": "3.7.4-final"
+   },
+   "orig_nbformat": 2,
+   "file_extension": ".py",
+@@ -15,14 +16,32 @@
+   "name": "python",
+   "npconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+-  "version": 3
++  "version": 3,
++  "kernelspec": {
++   "name": "python37464bitprojenvvenv5183e90ff64f49ee83b8a29c549cc789",
++   "display_name": "Python 3.7.4 64-bit ('projenv': venv)"
++  }
+  },
+  "cells": [
+   {
+    "cell_type": "code",
+-   "execution_count": null,
++   "execution_count": 2,
+    "metadata": {},
+-   "outputs": [],
++   "outputs": [
++    {
++     "output_type": "stream",
++     "name": "stdout",
++     "text": "Successfully logged in to Weights & Biases!\nwandb: Appending key for api.wandb.ai to your netrc file: C:\\Users\\DS/.netrc\n"
++    },
++    {
++     "output_type": "display_data",
++     "data": {
++      "text/plain": "<IPython.core.display.HTML object>",
++      "text/html": "\n                Logging results to <a href=\"https://wandb.com\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n                Project page: <a href=\"https://app.wandb.ai/epicrunze/USE%2Bdecoder-esc190\" target=\"_blank\">https://app.wandb.ai/epicrunze/USE%2Bdecoder-esc190</a><br/>\n                Run page: <a href=\"https://app.wandb.ai/epicrunze/USE%2Bdecoder-esc190/runs/4gki3r4c\" target=\"_blank\">https://app.wandb.ai/epicrunze/USE%2Bdecoder-esc190/runs/4gki3r4c</a><br/>\n            "
++     },
++     "metadata": {}
++    }
++   ],
+    "source": [
+     "import numpy as np \n",
+     "import tensorflow as tf \n",
+@@ -35,15 +54,22 @@
+     "!wandb login \"41c25b4fc8e96d4ae0d96e0abd4d69787a6ea35f\"\n",
+     "import wandb\n",
+     "from wandb.keras import WandbCallback\n",
+-    "wandb.init(project=\"lstm-autoencoder-esc190\")\n",
+-    "config = wandb.config\n"
++    "wandb.init(project=\"USE+decoder-esc190\")\n",
++    "config = wandb.config\n",
++    ""
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": null,
++   "execution_count": 3,
+    "metadata": {},
+-   "outputs": [],
++   "outputs": [
++    {
++     "output_type": "stream",
++     "name": "stdout",
++     "text": "Size of vocabulary: 117659\nLongest definition (words): 54\nNumber of definitions: 135959\nSize of definition vocabulary: 46948\n(135959, 54)\n"
++    }
++   ],
+    "source": [
+     "data_dir = \"data_wordnet\"\n",
+     "data = utils.read_dir(data_dir)\n",
+@@ -60,10 +86,28 @@
+     "\n",
+     "def_vectors = utils.convert_word2int(definitions, word2num)\n",
+     "\n",
+-    "x_train = utils.defs_to_np(def_vectors, max_length)\n",
++    "y_train = utils.defs_to_np(def_vectors, max_length)\n",
+     "\n",
+-    "print(x_train.shape)"
++    "print(y_train.shape)"
++   ]
++  },
++  {
++   "cell_type": "code",
++   "execution_count": 3,
++   "metadata": {},
++   "outputs": [],
++   "source": [
++    "import tensorflow_hub as hub\n",
++    "#creating embeddings from definitions\n",
++    "embed = hub.load(\"https://tfhub.dev/google/universal-sentence-encoder/4\")"
+    ]
++  },
++  {
++   "cell_type": "code",
++   "execution_count": null,
++   "metadata": {},
++   "outputs": [],
++   "source": []
+   }
+  ]
+ }
+\ No newline at end of file

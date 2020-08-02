@@ -1,0 +1,42 @@
+diff --git a/__pycache__/utils.cpython-37.pyc b/__pycache__/utils.cpython-37.pyc
+index dfd0f87..e78db15 100644
+Binary files a/__pycache__/utils.cpython-37.pyc and b/__pycache__/utils.cpython-37.pyc differ
+diff --git a/dataProcessing.ipynb b/dataProcessing.ipynb
+index 36fa789..d41d010 100644
+--- a/dataProcessing.ipynb
++++ b/dataProcessing.ipynb
+@@ -204,7 +204,8 @@
+    "outputs": [],
+    "source": [
+     "config.batch_size = 8\n",
+-    "config.steps_per_epoch = 1000"
++    "config.steps_per_epoch = 100\n",
++    "config.epochs = 700"
+    ]
+   },
+   {
+@@ -219,6 +220,15 @@
+     "dataset = dataset.shuffle(1000).batch(config.batch_size)"
+    ]
+   },
++  {
++   "cell_type": "code",
++   "execution_count": null,
++   "metadata": {},
++   "outputs": [],
++   "source": [
++    "model.loa"
++   ]
++  },
+   {
+    "cell_type": "code",
+    "execution_count": 11,
+@@ -249,7 +259,7 @@
+    ],
+    "source": [
+     "wandb.init()\n",
+-    "model.fit(dataset, epochs=1, callbacks=[WandbCallback()], steps_per_epoch=config.steps_per_epoch)"
++    "model.fit(dataset, epochs=config.epochs, callbacks=[WandbCallback()], steps_per_epoch=config.steps_per_epoch)"
+    ]
+   },
+   {

@@ -1,0 +1,26 @@
+{
+    "root": "c:/Users/runze/OneDrive/Desktop/ESC190/zhan8425_project",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "ssh://gitolite/zhan8425_project",
+        "commit": "ab6f5c6a4f80a36fa08f77c29cad080d1f60dcb2"
+    },
+    "email": "runze.zhang2001@gmail.com",
+    "startedAt": "2020-02-27T16:06:02.114974",
+    "host": "Not-a-PC",
+    "username": "runze",
+    "executable": "c:\\Users\\runze\\OneDrive\\Desktop\\ESC190\\zhan8425_project\\projenv\\Scripts\\python.exe",
+    "os": "Windows-10-10.0.18362-SP0",
+    "python": "3.7.5",
+    "cpu_count": 12,
+    "args": [
+        "-f",
+        "C:\\Users\\runze\\AppData\\Roaming\\jupyter\\runtime\\kernel-009982eb-530c-4d9a-ac6b-0e1c52a68b2e.json"
+    ],
+    "state": "running",
+    "jobType": null,
+    "mode": "run",
+    "name": "woven-energy-12",
+    "project": "lstm-autoencoder-esc190",
+    "heartbeatAt": "2020-02-27T16:06:04.331774"
+}

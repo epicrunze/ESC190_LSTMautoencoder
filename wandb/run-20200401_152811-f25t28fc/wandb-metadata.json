@@ -1,0 +1,28 @@
+{
+    "root": "c:/Users/DS/Desktop/zhan8425_project",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "ssh://gitolite/zhan8425_project",
+        "commit": "8d6085f393d5c8434180518d69d82b2bd6cc16b3"
+    },
+    "email": "runze.zhang2001@gmail.com",
+    "startedAt": "2020-04-01T15:28:11.585831",
+    "host": "Ryan-PC",
+    "username": "DS",
+    "executable": "c:\\Users\\DS\\Desktop\\zhan8425_project\\projenv\\Scripts\\python.exe",
+    "os": "Windows-10-10.0.18362-SP0",
+    "python": "3.7.4",
+    "gpu": "GeForce GTX 1050 Ti",
+    "gpu_count": 1,
+    "cpu_count": 4,
+    "args": [
+        "-f",
+        "C:\\Users\\DS\\AppData\\Roaming\\jupyter\\runtime\\kernel-31dce983-5a40-4daf-9831-64aca4731508.json"
+    ],
+    "state": "running",
+    "jobType": null,
+    "mode": "run",
+    "name": "easy-star-12",
+    "project": "USE+decoder-esc190",
+    "heartbeatAt": "2020-04-01T15:28:14.710476"
+}

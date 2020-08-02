@@ -1,0 +1,28 @@
+{
+    "root": "c:/Users/DS/Desktop/zhan8425_project",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "ssh://gitolite/zhan8425_project",
+        "commit": "5923a874c19529fb924821b42329b37f53c3242f"
+    },
+    "email": "runze.zhang2001@gmail.com",
+    "startedAt": "2020-03-06T05:07:07.762155",
+    "host": "Ryan-PC",
+    "username": "DS",
+    "executable": "c:\\Users\\DS\\Desktop\\zhan8425_project\\projenv\\Scripts\\python.exe",
+    "os": "Windows-10-10.0.18362-SP0",
+    "python": "3.7.4",
+    "gpu": "GeForce GTX 1050 Ti",
+    "gpu_count": 1,
+    "cpu_count": 4,
+    "args": [
+        "-f",
+        "C:\\Users\\DS\\AppData\\Roaming\\jupyter\\runtime\\kernel-41587598-dfd4-4265-88a9-16b794aa5bb8.json"
+    ],
+    "state": "running",
+    "jobType": null,
+    "mode": "run",
+    "name": "eager-serenity-28",
+    "project": "lstm-autoencoder-esc190",
+    "heartbeatAt": "2020-03-06T05:07:08.889160"
+}

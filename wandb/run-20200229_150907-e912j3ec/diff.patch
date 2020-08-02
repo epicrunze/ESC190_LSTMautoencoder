@@ -1,0 +1,377 @@
+diff --git a/__pycache__/utils.cpython-37.pyc b/__pycache__/utils.cpython-37.pyc
+index dfd0f87..e78db15 100644
+Binary files a/__pycache__/utils.cpython-37.pyc and b/__pycache__/utils.cpython-37.pyc differ
+diff --git a/dataProcessing.ipynb b/dataProcessing.ipynb
+index 36fa789..503331d 100644
+--- a/dataProcessing.ipynb
++++ b/dataProcessing.ipynb
+@@ -25,7 +25,7 @@
+  "cells": [
+   {
+    "cell_type": "code",
+-   "execution_count": 3,
++   "execution_count": 1,
+    "metadata": {},
+    "outputs": [
+     {
+@@ -35,19 +35,11 @@
+     },
+     {
+      "data": {
+-      "text/html": "\n                Logging results to <a href=\"https://wandb.com\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n                Project page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190</a><br/>\n                Run page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/mkt69pat\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/mkt69pat</a><br/>\n            ",
++      "text/html": "\n                Logging results to <a href=\"https://wandb.com\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n                Project page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190</a><br/>\n                Run page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/48oc4wcl\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/48oc4wcl</a><br/>\n            ",
+       "text/plain": "<IPython.core.display.HTML object>"
+      },
+      "metadata": {},
+      "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/plain": "W&B Run: https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/mkt69pat"
+-     },
+-     "execution_count": 3,
+-     "metadata": {},
+-     "output_type": "execute_result"
+     }
+    ],
+    "source": [
+@@ -68,7 +60,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 4,
++   "execution_count": 2,
+    "metadata": {},
+    "outputs": [
+     {
+@@ -100,7 +92,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 5,
++   "execution_count": 3,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -158,23 +150,23 @@
+     "output = finalDense\n",
+     "\n",
+     "#creating optimizers and loss\n",
+-    "\n",
+-    "optimizer = Adam(learning_rate = 0.001)"
++    "\n"
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 6,
++   "execution_count": 4,
+    "metadata": {},
+    "outputs": [
+     {
+      "name": "stdout",
+      "output_type": "stream",
+-     "text": "Model: \"model\"\n_________________________________________________________________\nLayer (type)                 Output Shape              Param #   \n=================================================================\ninput_1 (InputLayer)         [(None, None)]            0         \n_________________________________________________________________\nembedding_1 (Embedding)      (None, None, 64)          3004736   \n_________________________________________________________________\nlstm (LSTM)                  (None, None, 32)          12416     \n_________________________________________________________________\nlstm_1 (LSTM)                (None, 16)                3136      \n_________________________________________________________________\nrepeat_vector (RepeatVector) (None, 54, 16)            0         \n_________________________________________________________________\nlstm_2 (LSTM)                (None, 54, 16)            2112      \n_________________________________________________________________\nlstm_3 (LSTM)                (None, 54, 32)            6272      \n_________________________________________________________________\ntime_distributed (TimeDistri (None, 54, 100)           3300      \n_________________________________________________________________\ntime_distributed_1 (TimeDist (None, 54, 46948)         4741748   \n=================================================================\nTotal params: 7,773,720\nTrainable params: 7,773,720\nNon-trainable params: 0\n_________________________________________________________________\n"
++     "text": "Model: \"model\"\n__________________________________________________________________________________________________\nLayer (type)                    Output Shape         Param #     Connected to                     \n==================================================================================================\ninput_1 (InputLayer)            [(None, None)]       0                                            \n__________________________________________________________________________________________________\nembedding (Embedding)           (None, None, 64)     3004736     input_1[0][0]                    \n__________________________________________________________________________________________________\ntf_op_layer_NotEqual (TensorFlo [(None, None)]       0           input_1[0][0]                    \n__________________________________________________________________________________________________\nlstm (LSTM)                     (None, None, 32)     12416       embedding[0][0]                  \n__________________________________________________________________________________________________\nlstm_1 (LSTM)                   (None, 16)           3136        lstm[0][0]                       \n__________________________________________________________________________________________________\nrepeat_vector (RepeatVector)    (None, 54, 16)       0           lstm_1[0][0]                     \n__________________________________________________________________________________________________\nlstm_2 (LSTM)                   (None, 54, 16)       2112        repeat_vector[0][0]              \n__________________________________________________________________________________________________\nlstm_3 (LSTM)                   (None, 54, 32)       6272        lstm_2[0][0]                     \n__________________________________________________________________________________________________\ntime_distributed (TimeDistribut (None, 54, 100)      3300        lstm_3[0][0]                     \n__________________________________________________________________________________________________\ntime_distributed_1 (TimeDistrib (None, 54, 46948)    4741748     time_distributed[0][0]           \n==================================================================================================\nTotal params: 7,773,720\nTrainable params: 7,773,720\nNon-trainable params: 0\n__________________________________________________________________________________________________\n"
+     }
+    ],
+    "source": [
+     "model = Model(inputs=inputs, outputs=output)\n",
++    "optimizer = Adam(learning_rate = 0.0003)\n",
+     "model.compile(loss = categorical_crossentropy, optimizer = optimizer, metrics = [\"accuracy\"])\n",
+     "\n",
+     "#embedding.compile(\"rmsprop\", \"mse\")\n",
+@@ -185,7 +177,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 9,
++   "execution_count": 5,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -199,21 +191,23 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": null,
++   "execution_count": 14,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+     "config.batch_size = 8\n",
+-    "config.steps_per_epoch = 1000"
++    "#config.steps_per_epoch = 100\n",
++    "config.epochs = 88"
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 10,
++   "execution_count": 32,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+     "x_train = x_train.astype(\"int32\")\n",
++    "np.random.shuffle(x_train)\n",
+     "dataset = tf.data.Dataset.from_tensor_slices(x_train)\n",
+     "dataset = dataset.map(to_one_hot)\n",
+     "dataset = dataset.shuffle(1000).batch(config.batch_size)"
+@@ -221,35 +215,53 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 11,
++   "execution_count": 33,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+-    "model = tf.keras.models.load_model(\"1epoch.h5\")"
++    "model.load_weights(\"2weights.18.h5\")"
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 12,
++   "execution_count": 34,
++   "metadata": {},
++   "outputs": [],
++   "source": [
++    "from tensorflow.keras.callbacks import ModelCheckpoint\n",
++    "save_model = ModelCheckpoint(filepath=\"3weights.{epoch:02d}.h5\", monitor='accuracy', save_weights_only=True, mode='auto', verbose=1)"
++   ]
++  },
++  {
++   "cell_type": "code",
++   "execution_count": 35,
+    "metadata": {},
+    "outputs": [
++    {
++     "data": {
++      "text/html": "\n                Logging results to <a href=\"https://wandb.com\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n                Project page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190</a><br/>\n                Run page: <a href=\"https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/0f6q7zfh\" target=\"_blank\">https://app.wandb.ai/epicrunze/lstm-autoencoder-esc190/runs/0f6q7zfh</a><br/>\n            ",
++      "text/plain": "<IPython.core.display.HTML object>"
++     },
++     "metadata": {},
++     "output_type": "display_data"
++    },
+     {
+      "name": "stdout",
+      "output_type": "stream",
+-     "text": "Train for 16995 steps\n16995/16995 [==============================] - 5172s 304ms/step - loss: 0.8596 - accuracy: 0.0396\n"
++     "text": "Train for 16995 steps\nEpoch 1/18\n    1/16995 [..............................] - ETA: 160:35:56 - loss: 0.5962 - accuracy: 0.2553WARNING:tensorflow:Method (on_train_batch_end) is slow compared to the batch update (0.640288). Check your callbacks.\n16994/16995 [============================>.] - ETA: 0s - loss: 0.8137 - accuracy: 0.2865\nEpoch 00001: saving model to 2weights.01.h5\n16995/16995 [==============================] - 2587s 152ms/step - loss: 0.8136 - accuracy: 0.2865\nEpoch 2/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7927 - accuracy: 0.2942\nEpoch 00002: saving model to 2weights.02.h5\n16995/16995 [==============================] - 2557s 150ms/step - loss: 0.7927 - accuracy: 0.2942\nEpoch 3/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7838 - accuracy: 0.2993\nEpoch 00003: saving model to 2weights.03.h5\n16995/16995 [==============================] - 2560s 151ms/step - loss: 0.7838 - accuracy: 0.2993\nEpoch 4/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7769 - accuracy: 0.3032\nEpoch 00004: saving model to 2weights.04.h5\n16995/16995 [==============================] - 2559s 151ms/step - loss: 0.7769 - accuracy: 0.3032\nEpoch 5/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7722 - accuracy: 0.3053\nEpoch 00005: saving model to 2weights.05.h5\n16995/16995 [==============================] - 2556s 150ms/step - loss: 0.7722 - accuracy: 0.3053\nEpoch 6/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7680 - accuracy: 0.3074\nEpoch 00006: saving model to 2weights.06.h5\n16995/16995 [==============================] - 2559s 151ms/step - loss: 0.7680 - accuracy: 0.3074\nEpoch 7/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7666 - accuracy: 0.3083\nEpoch 00007: saving model to 2weights.07.h5\n16995/16995 [==============================] - 2563s 151ms/step - loss: 0.7666 - accuracy: 0.3083\nEpoch 8/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7634 - accuracy: 0.3100\nEpoch 00008: saving model to 2weights.08.h5\n16995/16995 [==============================] - 2558s 151ms/step - loss: 0.7634 - accuracy: 0.3100\nEpoch 9/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7608 - accuracy: 0.3116\nEpoch 00009: saving model to 2weights.09.h5\n16995/16995 [==============================] - 2570s 151ms/step - loss: 0.7608 - accuracy: 0.3116\nEpoch 10/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7582 - accuracy: 0.3131\nEpoch 00010: saving model to 2weights.10.h5\n16995/16995 [==============================] - 2566s 151ms/step - loss: 0.7582 - accuracy: 0.3131\nEpoch 11/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7561 - accuracy: 0.3142\nEpoch 00011: saving model to 2weights.11.h5\n16995/16995 [==============================] - 2568s 151ms/step - loss: 0.7561 - accuracy: 0.3142\nEpoch 12/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7545 - accuracy: 0.3150\nEpoch 00012: saving model to 2weights.12.h5\n16995/16995 [==============================] - 2574s 151ms/step - loss: 0.7545 - accuracy: 0.3150\nEpoch 13/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7532 - accuracy: 0.3160\nEpoch 00013: saving model to 2weights.13.h5\n16995/16995 [==============================] - 2600s 153ms/step - loss: 0.7532 - accuracy: 0.3160\nEpoch 14/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7513 - accuracy: 0.3171\nEpoch 00014: saving model to 2weights.14.h5\n16995/16995 [==============================] - 2591s 152ms/step - loss: 0.7513 - accuracy: 0.3171\nEpoch 15/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7498 - accuracy: 0.3181\nEpoch 00015: saving model to 2weights.15.h5\n16995/16995 [==============================] - 2950s 174ms/step - loss: 0.7498 - accuracy: 0.3181\nEpoch 16/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7499 - accuracy: 0.3177\nEpoch 00016: saving model to 2weights.16.h5\n16995/16995 [==============================] - 4350s 256ms/step - loss: 0.7499 - accuracy: 0.3177\nEpoch 17/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7474 - accuracy: 0.3194\nEpoch 00017: saving model to 2weights.17.h5\n16995/16995 [==============================] - 5666s 333ms/step - loss: 0.7474 - accuracy: 0.3194\nEpoch 18/18\n16994/16995 [============================>.] - ETA: 0s - loss: 0.7464 - accuracy: 0.3198\nEpoch 00018: saving model to 2weights.18.h5\n16995/16995 [==============================] - 3369s 198ms/step - loss: 0.7464 - accuracy: 0.3198\n"
+     },
+     {
+      "data": {
+-      "text/plain": "<tensorflow.python.keras.callbacks.History at 0x280138e04c8>"
++      "text/plain": "<tensorflow.python.keras.callbacks.History at 0x16012654dc8>"
+      },
+-     "execution_count": 12,
++     "execution_count": 35,
+      "metadata": {},
+      "output_type": "execute_result"
+     }
+    ],
+    "source": [
+     "wandb.init()\n",
+-    "model.fit(dataset, epochs=1, callbacks=[WandbCallback()], steps_per_epoch=config.steps_per_epoch)"
++    "model.fit(dataset, epochs=config.epochs, callbacks=[WandbCallback(), save_model])"
+    ]
+   },
+   {
+diff --git a/iamdumbandforgot2save.ipynb b/iamdumbandforgot2save.ipynb
+index 35d6295..b0e2e7f 100644
+--- a/iamdumbandforgot2save.ipynb
++++ b/iamdumbandforgot2save.ipynb
+@@ -8,7 +8,7 @@
+     "name": "ipython",
+     "version": 3
+    },
+-   "version": "3.7.5-final"
++   "version": "3.7.4-final"
+   },
+   "orig_nbformat": 2,
+   "file_extension": ".py",
+@@ -18,8 +18,8 @@
+   "pygments_lexer": "ipython3",
+   "version": 3,
+   "kernelspec": {
+-   "name": "python37564bitprojenvvenv64a22ff99f0e49308299b7eb2e75ef79",
+-   "display_name": "Python 3.7.5 64-bit ('projenv': venv)"
++   "name": "python37464bitprojenvvenv5183e90ff64f49ee83b8a29c549cc789",
++   "display_name": "Python 3.7.4 64-bit ('projenv': venv)"
+   }
+  },
+  "cells": [
+@@ -39,7 +39,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 6,
++   "execution_count": 10,
+    "metadata": {},
+    "outputs": [
+     {
+@@ -71,7 +71,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 17,
++   "execution_count": 11,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -134,18 +134,18 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 18,
++   "execution_count": 12,
+    "metadata": {},
+    "outputs": [
+     {
+      "name": "stdout",
+      "output_type": "stream",
+-     "text": "Model: \"model_2\"\n__________________________________________________________________________________________________\nLayer (type)                    Output Shape         Param #     Connected to                     \n==================================================================================================\ninput_2 (InputLayer)            [(None, None)]       0                                            \n__________________________________________________________________________________________________\nembedding_4 (Embedding)         (None, None, 64)     3004736     input_2[0][0]                    \n__________________________________________________________________________________________________\ntf_op_layer_NotEqual_1 (TensorF [(None, None)]       0           input_2[0][0]                    \n__________________________________________________________________________________________________\nlstm_4 (LSTM)                   (None, None, 32)     12416       embedding_4[0][0]                \n__________________________________________________________________________________________________\nlstm_5 (LSTM)                   (None, 16)           3136        lstm_4[0][0]                     \n__________________________________________________________________________________________________\nrepeat_vector_1 (RepeatVector)  (None, 54, 16)       0           lstm_5[0][0]                     \n__________________________________________________________________________________________________\nlstm_6 (LSTM)                   (None, 54, 16)       2112        repeat_vector_1[0][0]            \n__________________________________________________________________________________________________\nlstm_7 (LSTM)                   (None, 54, 32)       6272        lstm_6[0][0]                     \n__________________________________________________________________________________________________\ntime_distributed_2 (TimeDistrib (None, 54, 100)      3300        lstm_7[0][0]                     \n__________________________________________________________________________________________________\ntime_distributed_3 (TimeDistrib (None, 54, 46948)    4741748     time_distributed_2[0][0]         \n==================================================================================================\nTotal params: 7,773,720\nTrainable params: 7,773,720\nNon-trainable params: 0\n__________________________________________________________________________________________________\n"
++     "text": "Model: \"model\"\n__________________________________________________________________________________________________\nLayer (type)                    Output Shape         Param #     Connected to                     \n==================================================================================================\ninput_1 (InputLayer)            [(None, None)]       0                                            \n__________________________________________________________________________________________________\nembedding_1 (Embedding)         (None, None, 64)     3004736     input_1[0][0]                    \n__________________________________________________________________________________________________\ntf_op_layer_NotEqual (TensorFlo [(None, None)]       0           input_1[0][0]                    \n__________________________________________________________________________________________________\nlstm (LSTM)                     (None, None, 32)     12416       embedding_1[0][0]                \n__________________________________________________________________________________________________\nlstm_1 (LSTM)                   (None, 16)           3136        lstm[0][0]                       \n__________________________________________________________________________________________________\nrepeat_vector (RepeatVector)    (None, 54, 16)       0           lstm_1[0][0]                     \n__________________________________________________________________________________________________\nlstm_2 (LSTM)                   (None, 54, 16)       2112        repeat_vector[0][0]              \n__________________________________________________________________________________________________\nlstm_3 (LSTM)                   (None, 54, 32)       6272        lstm_2[0][0]                     \n__________________________________________________________________________________________________\ntime_distributed (TimeDistribut (None, 54, 100)      3300        lstm_3[0][0]                     \n__________________________________________________________________________________________________\ntime_distributed_1 (TimeDistrib (None, 54, 46948)    4741748     time_distributed[0][0]           \n==================================================================================================\nTotal params: 7,773,720\nTrainable params: 7,773,720\nNon-trainable params: 0\n__________________________________________________________________________________________________\n"
+     }
+    ],
+    "source": [
+     "model = Model(inputs=inputs, outputs=output)\n",
+-    "optimizer = Adam(learning_rate = 0.01)\n",
++    "optimizer = Adam(learning_rate = 0.0003)\n",
+     "model.compile(loss = categorical_crossentropy, optimizer = optimizer, metrics = [\"accuracy\"])\n",
+     "\n",
+     "#embedding.compile(\"rmsprop\", \"mse\")\n",
+@@ -156,7 +156,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 9,
++   "execution_count": 13,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -174,7 +174,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 26,
++   "execution_count": 14,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -187,39 +187,25 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 20,
++   "execution_count": 15,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+-    "model.load_weights(\"weights.h5\")"
++    "model.load_weights(\"2weights.18.h5\")"
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 27,
++   "execution_count": null,
+    "metadata": {},
+-   "outputs": [
+-    {
+-     "name": "stdout",
+-     "output_type": "stream",
+-     "text": "Train for 100 steps\nEpoch 1/5\n100/100 [==============================] - 66s 659ms/step - loss: 1.1062 - accuracy: 0.1906\nEpoch 2/5\n100/100 [==============================] - 57s 572ms/step - loss: 1.0779 - accuracy: 0.2091\nEpoch 3/5\n100/100 [==============================] - 59s 594ms/step - loss: 1.0634 - accuracy: 0.1949\nEpoch 4/5\n100/100 [==============================] - 58s 582ms/step - loss: 1.0145 - accuracy: 0.2190\nEpoch 5/5\n100/100 [==============================] - 58s 581ms/step - loss: 1.0021 - accuracy: 0.2231\n"
+-    },
+-    {
+-     "data": {
+-      "text/plain": "<tensorflow.python.keras.callbacks.History at 0x1e2b1cc8188>"
+-     },
+-     "execution_count": 27,
+-     "metadata": {},
+-     "output_type": "execute_result"
+-    }
+-   ],
++   "outputs": [],
+    "source": [
+-    "model.fit(dataset, epochs=5, steps_per_epoch=100)"
++    "#model.fit(dataset, epochs=5, steps_per_epoch=100)"
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 28,
++   "execution_count": null,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -228,7 +214,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 29,
++   "execution_count": 16,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -238,7 +224,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 31,
++   "execution_count": 17,
+    "metadata": {},
+    "outputs": [
+     {
+@@ -253,7 +239,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 33,
++   "execution_count": 18,
+    "metadata": {},
+    "outputs": [
+     {
+@@ -269,17 +255,24 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 38,
++   "execution_count": 20,
+    "metadata": {},
+    "outputs": [
+     {
+      "name": "stdout",
+      "output_type": "stream",
+-     "text": "any of of of of the of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of \n\nthe the that and and of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of \n\nsomeone perennial perennial of of of and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and \n\nany of of and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and \n\nperennial for the of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of \n\na more perennial perennial of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of \n\na the between the of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of \n\nin a system the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\nwithout grown or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or or \n\nresembling and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and \n\n"
++     "text": "common form of acute encephalitis caused by herpes simplex 1 \n\nabnormal source of blood and characterized by animals and the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\nin an ungrammatical manner \n\nin an manner manner the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\na finance company that makes small loans to industrial workers \n\na puzzle system that was the a the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\na score that makes the match even \n\na printer that can the a a the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\na small but indefinite number \n\na small or for one the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\nwith a slant \n\nwith a date the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\na protein that is involved in cell differentiation and growth \n\na device that is a of a a a a the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\na morbid fear of fire \n\na morbid feeling of or the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\nconfer dignity or honor upon \n\napprove or or or or the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\ndeal with ahead of time \n\nmake or capable of one the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the \n\n"
+     }
+    ],
+    "source": [
++    "testkekboi = iter(testkek)\n",
+     "for sentence in words.numpy().tolist():\n",
++    "    for word in next(testkekboi):\n",
++    "        if word == 0:\n",
++    "            break\n",
++    "        print(num2word[word], end = \" \")\n",
++    "\n",
++    "    print(\"\\n\")\n",
+     "    for word in sentence:\n",
+     "        if word == 0:\n",
+     "            break\n",
+@@ -305,6 +298,13 @@
+    "source": [
+     "tf.config.list_physical_devices('GPU')"
+    ]
++  },
++  {
++   "cell_type": "code",
++   "execution_count": null,
++   "metadata": {},
++   "outputs": [],
++   "source": []
+   }
+  ]
+ }
+\ No newline at end of file

@@ -1,0 +1,28 @@
+{
+    "root": "c:/Users/DS/Desktop/zhan8425_project",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "ssh://gitolite/zhan8425_project",
+        "commit": "246554e3fd7f55c7eb1eecd8693bf9d083dc9544"
+    },
+    "email": "runze.zhang2001@gmail.com",
+    "startedAt": "2020-03-27T16:26:18.295189",
+    "host": "Ryan-PC",
+    "username": "DS",
+    "executable": "c:\\Users\\DS\\Desktop\\zhan8425_project\\projenv\\Scripts\\python.exe",
+    "os": "Windows-10-10.0.18362-SP0",
+    "python": "3.7.4",
+    "gpu": "GeForce GTX 1050 Ti",
+    "gpu_count": 1,
+    "cpu_count": 4,
+    "args": [
+        "-f",
+        "C:\\Users\\DS\\AppData\\Roaming\\jupyter\\runtime\\kernel-f927c56e-78c7-4456-95bc-832d59226282.json"
+    ],
+    "state": "running",
+    "jobType": null,
+    "mode": "run",
+    "name": "skilled-disco-2",
+    "project": "USE+decoder-esc190",
+    "heartbeatAt": "2020-03-27T16:26:21.848214"
+}
