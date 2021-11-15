@@ -61,7 +61,7 @@ pandocfilters==1.4.2
 parso==0.6.1
 pathtools==0.1.2
 pickleshare==0.7.5
-pip==20.0.2
+pip==21.1
 praw==6.5.1
 prawcore==1.0.1
 prometheus-client==0.7.1
